@@ -1,0 +1,32 @@
+.container {
+  height: 80vh;
+  border: 1px solid grey;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 5px;
+  margin-top: 50px;
+  padding: 60px 20px;
+  .header {
+    text-align: center;
+    margin: 20px;
+    #todo {
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+    #sign-in {
+      font-size: 24px;
+    }
+  }
+
+  .item {
+    width: 400px;
+  }
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

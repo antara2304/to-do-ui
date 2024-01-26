@@ -5,6 +5,16 @@ import { HomeModule } from '@module/home/home.module';
 
 const routes: Routes = [
   {
+    path: 'sign-in',
+    loadChildren: () =>
+      import('@module/sign-in/sign-in.module').then((m) => m.SignInModule),
+  },
+  {
+    path: 'sign-up',
+    loadChildren: () =>
+      import('@module/sign-up/sign-up.module').then((m) => m.SignUpModule),
+  },
+  {
     path: '',
     // component: MainComponent,
     children: [
@@ -14,16 +24,6 @@ const routes: Routes = [
           import('@module/home/home.module').then(
             (m): typeof HomeModule => m.HomeModule
           ),
-      },
-      {
-        path: 'sign-in',
-        loadChildren: () =>
-          import('@module/sign-in/sign-in.module').then((m) => m.SignInModule),
-      },
-      {
-        path: 'sign-up',
-        loadChildren: () =>
-          import('@module/sign-up/sign-up.module').then((m) => m.SignUpModule),
       },
     ],
   },

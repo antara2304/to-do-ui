@@ -10,9 +10,10 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { MainComponent } from './layout/main/main.component';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { SharedModule } from './shared/shared.module';
+import { SideNavComponent } from './layout/side-nav/side-nav.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent, MainComponent],
+  declarations: [AppComponent, HeaderComponent, FooterComponent, MainComponent, SideNavComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

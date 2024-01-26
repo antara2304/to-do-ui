@@ -1,1 +1,27 @@
-<p>sign-up works!</p>
+<div class="container">
+  <div class="header">
+    <div id="todo">
+      <span>T</span><span>o</span><span>-</span><span>D</span><span>o</span>
+    </div>
+    <div id="sign-up">Create a TO-DO Account</div>
+    <div>Enter your details</div>
+  </div>
+  <input
+    type="text"
+    class="item"
+    pInputText
+    placeholder="Enter Your Email"
+    [(ngModel)]="value"
+  />
+  <input
+    type="text"
+    class="item"
+    pInputText
+    placeholder="Enter Your Password"
+    [(ngModel)]="value"
+  />
+  <div class="item footer">
+    <div class="create-account">Sign in</div>
+    <p-button label="Submit"></p-button>
+  </div>
+</div>

@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  background-color: #f1f1f1;
+}
+@import "../node_modules/primeng/resources/themes/soho-light/theme.css";
+@import "../node_modules/primeng/resources/primeng.min.css";
+@import "primeicons/primeicons.css";
+
+@import "./app/styles/components/scrollbar";
+@import "./app/styles/components/button";

@@ -4,10 +4,11 @@ import { HomeRoutingModule } from './home-routing.module';
 import { SharedModule } from '@app/shared/shared.module';
 import { HomeComponent } from './pages/home/home.component';
 
+import { CardComponent } from './pages/card/card.component';
+import { CheckboxModule } from 'primeng/checkbox';
+
 @NgModule({
-  declarations: [
-    HomeComponent
-  ],
-  imports: [SharedModule, HomeRoutingModule],
+  declarations: [HomeComponent, CardComponent],
+  imports: [SharedModule, CheckboxModule, HomeRoutingModule],
 })
 export class HomeModule {}
