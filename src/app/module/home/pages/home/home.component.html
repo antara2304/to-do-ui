@@ -1,13 +1,21 @@
 <div class="container">
   <div class="top">
-    <p-button label="New task" icon="pi pi-plus"></p-button>
+    <p-button
+      label="Create New task"
+      icon="pi pi-plus"
+      (click)="create()"
+    ></p-button>
+    <span class="p-input-icon-left">
+      <i class="pi pi-search"></i>
+      <input
+        type="text"
+        pInputText
+        placeholder="Search Your Tasks"
+        [(ngModel)]="value"
+      />
+    </span>
   </div>
   <div class="cards">
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
+    <app-card *ngFor="let card of cards"></app-card>
   </div>
 </div>

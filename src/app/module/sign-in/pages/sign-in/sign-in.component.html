@@ -11,17 +11,17 @@
     class="item"
     pInputText
     placeholder="Enter Your Email"
-    [(ngModel)]="value"
+    [(ngModel)]="email"
   />
   <input
     type="text"
     class="item"
     pInputText
     placeholder="Enter Your Password"
-    [(ngModel)]="value"
+    [(ngModel)]="password"
   />
   <div class="item footer">
-    <div class="create-account">Create account</div>
-    <p-button label="Submit"></p-button>
+    <div class="create-account" (click)="createAccout()">Create account</div>
+    <p-button label="Submit" (click)="onSubmit()"></p-button>
   </div>
 </div>

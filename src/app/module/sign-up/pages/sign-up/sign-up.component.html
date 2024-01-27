@@ -6,22 +6,32 @@
     <div id="sign-up">Create a TO-DO Account</div>
     <div>Enter your details</div>
   </div>
+  <!-- <form [formGroup]="profile"> -->
   <input
     type="text"
     class="item"
     pInputText
     placeholder="Enter Your Email"
-    [(ngModel)]="value"
+    [(ngModel)]="name"
+  />
+
+  <input
+    type="text"
+    class="item"
+    pInputText
+    placeholder="Enter Your Email"
+    [(ngModel)]="email"
   />
   <input
     type="text"
     class="item"
     pInputText
     placeholder="Enter Your Password"
-    [(ngModel)]="value"
+    [(ngModel)]="password"
   />
+  <!-- </form> -->
   <div class="item footer">
-    <div class="create-account">Sign in</div>
-    <p-button label="Submit"></p-button>
+    <div class="create-account" (click)="signin()">Sign in</div>
+    <p-button label="Submit" (click)="onSubmit()"></p-button>
   </div>
 </div>
