@@ -16,6 +16,11 @@
     </span>
   </div>
   <div class="cards">
-    <app-card *ngFor="let card of cards"></app-card>
+    <app-create-task
+      *ngIf="isNewTask"
+      (createEvent)="onSaveNewTask($event)"
+      (deleteEvent)="onDelete($event)"
+    ></app-create-task>
+    <app-card *ngFor="let card of cards" [title]="card.title"></app-card>
   </div>
 </div>

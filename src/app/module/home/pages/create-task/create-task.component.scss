@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  padding: 15px 20px;
+  input {
+    border: none;
+    width: 80%;
+    height: 30px;
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  .btn {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+}
