@@ -21,6 +21,12 @@
       (createEvent)="onSaveNewTask($event)"
       (deleteEvent)="onDelete($event)"
     ></app-create-task>
-    <app-card *ngFor="let card of cards" [title]="card.title"></app-card>
+    <app-card
+      *ngFor="let card of cards"
+      [title]="card.title"
+      [date]="card.date"
+      [inputId]="card._id"
+      [isCompleted]="card.isCompleted"
+    ></app-card>
   </div>
 </div>

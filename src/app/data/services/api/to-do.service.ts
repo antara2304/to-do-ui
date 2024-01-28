@@ -20,7 +20,10 @@ export class ToDoService {
     let _url = this.url + '/to-do';
     return this.http.post<IToDo>(_url, data, this.httpOptions);
   }
-  update() {}
+  update(cardID: string | undefined, data: IToDo): Observable<IToDo> {
+    let _url = this.url + '/to-do/update/' + cardID;
+    return this.http.put<IToDo>(_url, data, this.httpOptions);
+  }
   read(userID: string): Observable<IToDo> {
     let _url = this.url + '/to-do/userID/' + userID;
     return this.http.get<IToDo>(_url, this.httpOptions);

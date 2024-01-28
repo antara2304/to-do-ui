@@ -21,12 +21,14 @@ export class CreateTaskComponent {
 
   save() {
     try {
-      const userID = this.tokenSvc.decodeToken();
-      this.todoSvc
-        .create({ userID: userID, title: this.value })
-        .subscribe(() => {
-          console.log('New task has been created successfully');
-        });
+      const newTaskObj = {
+        userID: this.tokenSvc.decodeToken(),
+        title: this.value,
+        date: new Date(),
+      };
+      this.todoSvc.create(newTaskObj).subscribe(() => {
+        console.log('New task has been created successfully');
+      });
       this.createEvent.emit({ title: this.value });
     } catch (error) {
       console.error(error);

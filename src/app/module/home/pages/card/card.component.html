@@ -1,14 +1,17 @@
 <div class="container">
   <p-checkbox
-    [(ngModel)]="checked"
+    [(ngModel)]="isCompleted"
     [binary]="true"
-    inputId="binary"
+    [inputId]="inputId"
+    (onChange)="onChange($event)"
   ></p-checkbox>
   <div class="main">
-    <div>{{ title }}</div>
+    <div [ngClass]="{ completed: isCompleted }">{{ title }}</div>
     <div class="date">
       <i class="pi pi-calendar"></i>
-      <span>Jan 8, 2024</span>
+      <span>{{ date | date : "dd/MM/yyyy" }}</span>
+      <i class="pi pi-pencil edit" (click)="onEditCard()"></i>
+      <i class="pi pi-trash delete"></i>
     </div>
   </div>
 </div>

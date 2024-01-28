@@ -18,5 +18,16 @@
     gap: 10px;
     font-size: 14px;
     color: #88929b;
+    .edit {
+      cursor: pointer;
+      margin: 0px 5px;
+    }
+    .delete {
+      cursor: pointer;
+      margin: 0px 5px;
+    }
   }
+}
+.completed {
+  text-decoration: line-through;
 }
