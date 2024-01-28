@@ -5,15 +5,7 @@
       icon="pi pi-plus"
       (click)="create()"
     ></p-button>
-    <span class="p-input-icon-left">
-      <i class="pi pi-search"></i>
-      <input
-        type="text"
-        pInputText
-        placeholder="Search Your Tasks"
-        [(ngModel)]="value"
-      />
-    </span>
+    <app-search (searchEvent)="onSearch($event)"></app-search>
   </div>
   <div class="cards">
     <app-create-task
@@ -22,7 +14,7 @@
       (deleteEvent)="onDelete($event)"
     ></app-create-task>
     <app-card
-      *ngFor="let card of cards"
+      *ngFor="let card of cards | searchFilter : searchText"
       [title]="card.title"
       [date]="card.date"
       [inputId]="card._id"

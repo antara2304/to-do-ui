@@ -6,8 +6,10 @@ import { RouterModule } from '@angular/router';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { TooltipModule } from 'primeng/tooltip';
+import { SearchComponent } from './components/search/search.component';
+import { SearchFilterPipe } from './pipes/search-filter.pipe';
 @NgModule({
-  declarations: [],
+  declarations: [SearchComponent, SearchFilterPipe],
   imports: [
     CommonModule,
     FormsModule,
@@ -27,6 +29,8 @@ import { TooltipModule } from 'primeng/tooltip';
     InputTextModule,
     ButtonModule,
     TooltipModule,
+    SearchComponent,
+    SearchFilterPipe,
   ],
 })
 export class SharedModule {}

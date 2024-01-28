@@ -10,8 +10,10 @@ import { TokenService } from '@app/data/services/api/token.service';
 })
 export class HomeComponent {
   public isNewTask: boolean = false;
-  public value: string = '';
+
   public cards: IToDo[] = [];
+
+  public searchText: string = '';
 
   constructor(private tokenSvc: TokenService, private todoSvc: ToDoService) {}
 
@@ -35,5 +37,9 @@ export class HomeComponent {
 
   onDelete(event: boolean) {
     this.isNewTask = false;
+  }
+
+  onSearch(event: string) {
+    this.searchText = event;
   }
 }
