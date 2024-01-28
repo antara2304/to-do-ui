@@ -19,6 +19,7 @@
       [date]="card.date"
       [inputId]="card._id"
       [isCompleted]="card.isCompleted"
+      (deleteEvent)="deleteTodo($event)"
     ></app-card>
   </div>
 </div>

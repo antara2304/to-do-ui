@@ -12,9 +12,8 @@ export class TokenService {
       const token = localStorage.getItem('token');
       if (token) {
         this.tokenInfo = jwtDecode(token);
-        console.log(this.tokenInfo);
       }
-      return this.tokenInfo['id'];
+      return this.tokenInfo;
     } catch (error) {
       return null;
     }

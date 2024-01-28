@@ -1,8 +1,10 @@
 import {
   Component,
+  EventEmitter,
   Input,
   OnChanges,
   OnInit,
+  Output,
   effect,
   signal,
 } from '@angular/core';
@@ -15,30 +17,29 @@ import { TokenService } from '@app/data/services/api/token.service';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
 })
-export class CardComponent implements OnInit, OnChanges {
+export class CardComponent implements OnInit {
   public checked: any[] = [];
   @Input() title: string | undefined = '';
   @Input() date: Date | undefined = new Date();
   @Input() inputId: string | undefined = '';
   @Input() isCompleted: boolean | undefined = false;
+  @Output() deleteEvent = new EventEmitter();
+
+  private token: any;
   private userID: string = '';
 
   private testingSignal = signal(this.checked);
   constructor(private tokenSvc: TokenService, private todoSvc: ToDoService) {
-    effect(() => {
-      console.log(this.testingSignal());
-    });
+    // effect(() => {
+    //   console.log(this.testingSignal());
+    // });
   }
   ngOnInit() {
-    this.userID = this.tokenSvc.decodeToken();
-  }
-  ngOnChanges() {
-    console.log(this.isCompleted);
+    this.token = this.tokenSvc.decodeToken();
+    this.userID = this.token['id'];
   }
 
   onChange(event: any) {
-    console.log(event);
-
     const updatedObj: IToDo = {
       // title: this.title,
       date: new Date(),
@@ -65,6 +66,16 @@ export class CardComponent implements OnInit, OnChanges {
       });
     } catch (error) {
       console.error(error);
+    }
+  }
+  onDelete() {
+    try {
+      this.todoSvc.delete(this.inputId).subscribe((data) => {
+        console.log('To-do has been deleted successfully');
+        this.deleteEvent.emit(true);
+      });
+    } catch (error) {
+      console.log(error);
     }
   }
 }

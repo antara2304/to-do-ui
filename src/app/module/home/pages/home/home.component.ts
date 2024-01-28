@@ -9,6 +9,7 @@ import { TokenService } from '@app/data/services/api/token.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
+  private token: any;
   public isNewTask: boolean = false;
 
   public cards: IToDo[] = [];
@@ -18,8 +19,9 @@ export class HomeComponent {
   constructor(private tokenSvc: TokenService, private todoSvc: ToDoService) {}
 
   ngOnInit() {
+    this.token = this.tokenSvc.decodeToken();
     try {
-      this.todoSvc.read(this.tokenSvc.decodeToken()).subscribe((data) => {
+      this.todoSvc.read(this.token['id']).subscribe((data) => {
         this.cards = data as IToDo[];
       });
     } catch (error) {
@@ -41,5 +43,16 @@ export class HomeComponent {
 
   onSearch(event: string) {
     this.searchText = event;
+  }
+
+  deleteTodo(event: boolean) {
+    try {
+      this.todoSvc.read(this.token['id']).subscribe((data) => {
+        console.log('on delete', data);
+        this.cards = data as IToDo[];
+      });
+    } catch (error) {
+      console.error(error);
+    }
   }
 }

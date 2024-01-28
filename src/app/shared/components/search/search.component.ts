@@ -13,7 +13,6 @@ export class SearchComponent {
   constructor() {}
 
   onChange(data: any) {
-    console.log(data);
     this.searchEvent.emit(data);
   }
 }

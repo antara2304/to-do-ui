@@ -22,14 +22,14 @@ export class CreateTaskComponent {
   save() {
     try {
       const newTaskObj = {
-        userID: this.tokenSvc.decodeToken(),
+        userID: this.tokenSvc.decodeToken()['id'],
         title: this.value,
         date: new Date(),
       };
       this.todoSvc.create(newTaskObj).subscribe(() => {
         console.log('New task has been created successfully');
       });
-      this.createEvent.emit({ title: this.value });
+      this.createEvent.emit({ title: this.value, date: new Date() });
     } catch (error) {
       console.error(error);
     }
